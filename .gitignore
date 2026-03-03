@@ -1,0 +1,4 @@
+# Add folder names here that you want to exclude from Git
+# Example: FILEMODULE/
+
+node_modules/

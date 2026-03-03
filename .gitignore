@@ -2,3 +2,7 @@
 # Example: FILEMODULE/
 
 node_modules/
+FILEMODULE/
+HTTP/
+MODULES/
+.env

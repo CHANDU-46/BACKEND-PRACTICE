@@ -20,7 +20,23 @@ app.post('/users',(req,res)=>{
     res.status(201).json(newuser);
 })
 
-//STILL I NEED TO DO PUT and DELETE REQUESTS
+app.put('/users/:id',(req,res)=>{
+    const id=parseInt(req.params.id);
+
+    const user=users.find(u=>u.id===id);
+    if( !user){ 
+        return res.status(404).json({message:"User not found"});
+    }
+    user.name=req.body.name;
+    res.json(user);
+})
+app.delete('/users/:id',(req,res)=>{
+    const id=parseInt(req.params.id);
+    users=users.filter(u=>u.id!==id);
+    res.json({
+        "message":"User deleted succesfully"
+    })
+})
 
 app.listen(PORT, () => {
     console.log("REST API running on http://localhost:"+PORT);
